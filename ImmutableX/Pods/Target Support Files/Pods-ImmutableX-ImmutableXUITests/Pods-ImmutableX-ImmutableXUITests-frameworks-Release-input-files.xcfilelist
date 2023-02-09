@@ -1,6 +1,0 @@
-${PODS_ROOT}/Target Support Files/Pods-ImmutableX-ImmutableXUITests/Pods-ImmutableX-ImmutableXUITests-frameworks.sh
-${BUILT_PRODUCTS_DIR}/AnyCodable-FlightSchool/AnyCodable.framework
-${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework
-${BUILT_PRODUCTS_DIR}/ImmutableXCore/ImmutableXCore.framework
-${BUILT_PRODUCTS_DIR}/secp256k1Swift/secp256k1Swift.framework
-${BUILT_PRODUCTS_DIR}/secp256k1Wrapper/secp256k1Wrapper.framework

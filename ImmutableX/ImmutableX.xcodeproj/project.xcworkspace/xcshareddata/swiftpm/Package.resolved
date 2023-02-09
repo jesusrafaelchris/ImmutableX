@@ -1,0 +1,77 @@
+{
+  "pins" : [
+    {
+      "identity" : "anycodable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Flight-School/AnyCodable",
+      "state" : {
+        "revision" : "862808b2070cd908cb04f9aafe7de83d35f81b05",
+        "version" : "0.6.7"
+      }
+    },
+    {
+      "identity" : "bigint",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/attaswift/BigInt",
+      "state" : {
+        "revision" : "0ed110f7555c34ff468e72e1686e59721f2b0da6",
+        "version" : "5.3.0"
+      }
+    },
+    {
+      "identity" : "cryptoswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/CryptoSwift.git",
+      "state" : {
+        "revision" : "039f56c5d7960f277087a0be51f5eb04ed0ec073",
+        "version" : "1.5.1"
+      }
+    },
+    {
+      "identity" : "glaip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maurovz/Glaip.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7ef71818907c5cb89e81ececae9f2d705e49296f"
+      }
+    },
+    {
+      "identity" : "imx-core-sdk-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/immutable/imx-core-sdk-swift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c424c32f1d795bfff502538c6902e59c94d4c6e8"
+      }
+    },
+    {
+      "identity" : "secp256k1",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/portto/secp256k1.git",
+      "state" : {
+        "revision" : "6864a2560066cedede330c4b344689432a7300f7",
+        "version" : "0.0.5"
+      }
+    },
+    {
+      "identity" : "secp256k1.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/portto/secp256k1.swift.git",
+      "state" : {
+        "revision" : "23aa6bab1f60e513297d0d58a863418f68534e56",
+        "version" : "0.7.4"
+      }
+    },
+    {
+      "identity" : "walletconnectswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/WalletConnect/WalletConnectSwift.git",
+      "state" : {
+        "revision" : "e0bbfd16d5c54a7aa7e316956d765399c6332fa2",
+        "version" : "1.7.0"
+      }
+    }
+  ],
+  "version" : 2
+}
