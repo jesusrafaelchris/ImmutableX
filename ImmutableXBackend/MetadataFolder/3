@@ -1,0 +1,8 @@
+{
+  "name": "3rd NFT",
+  "description": "This is your 3rd nft",
+  "image_url":"https://gateway.pinata.cloud/ipfs/Qmf9PzU7Sqf2G6xJar8p9FRB7DwtFoE5E3o1NqGaaK9TE1",
+  "attack": 323,
+  "collectable": true,
+  "class": "EnumValue3"   
+}
