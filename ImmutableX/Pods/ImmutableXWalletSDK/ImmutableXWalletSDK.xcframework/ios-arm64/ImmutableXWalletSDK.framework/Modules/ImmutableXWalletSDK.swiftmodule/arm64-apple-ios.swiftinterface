@@ -1,0 +1,86 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ImmutableXWalletSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import ImmutableXCore
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+public enum ImmutableXWalletStatus {
+  case connecting
+  case pendingConnection
+  case pendingSignature
+  case connected
+  case disconnecting
+  case disconnected
+  public static func == (a: ImmutableXWalletSDK.ImmutableXWalletStatus, b: ImmutableXWalletSDK.ImmutableXWalletStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+#if compiler(>=5.3) && $Actors
+@_hasMissingDesignatedInitializers public actor ImmutableXWallet {
+  #if compiler(>=5.3) && $AsyncAwait
+  public typealias ImmutableXWalletStatusCallback = (ImmutableXWalletSDK.ImmutableXWalletStatus) async -> Swift.Void
+  #endif
+  public static var shared: ImmutableXWalletSDK.ImmutableXWallet {
+    get
+  }
+  public var signer: ImmutableXCore.Signer? {
+    get
+  }
+  public var starkSigner: ImmutableXCore.StarkSigner? {
+    get
+  }
+  public var status: ImmutableXWalletSDK.ImmutableXWalletStatus {
+    get
+  }
+  #if compiler(>=5.3) && $AsyncAwait
+  public func setStatusCallbackForId(_ id: some Hashable, callback: @escaping ImmutableXWalletSDK.ImmutableXWallet.ImmutableXWalletStatusCallback)
+  #endif
+  public func removeStatusCallbackForId(_ id: some Hashable)
+  public func removeAllStatusCallbacks()
+  #if compiler(>=5.3) && $AsyncAwait
+  public func connect(to provider: ImmutableXWalletSDK.Provider) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @discardableResult
+  public func restartSession() async throws -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  public func disconnect() async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  public func getWalletAddress() async -> Swift.String?
+  #endif
+  @objc deinit
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  @_semantics("defaultActor") nonisolated final public var unownedExecutor: _Concurrency.UnownedSerialExecutor {
+    get
+  }
+}
+#endif
+public enum Provider : Swift.Equatable {
+  case walletConnect(config: ImmutableXWalletSDK.WalletConnectConfig)
+  public static func == (a: ImmutableXWalletSDK.Provider, b: ImmutableXWalletSDK.Provider) -> Swift.Bool
+}
+public struct WalletConnectConfig : Swift.Equatable {
+  public init(appURL: Foundation.URL, appName: Swift.String, appDescription: Swift.String? = nil, appIcons: [Foundation.URL]? = nil, bridgeServer: Foundation.URL? = nil, walletDeeplink: Swift.String)
+  public static func == (a: ImmutableXWalletSDK.WalletConnectConfig, b: ImmutableXWalletSDK.WalletConnectConfig) -> Swift.Bool
+}
+public enum ImmutableXWalletError : Swift.Error {
+  case couldNotAccessKeychain
+  case userCancelledKeychain
+  case missingKeychainEntitlement
+  case noSessionFound
+  case invalidConnectionConfig
+  case connectionFailed(Swift.Error?)
+  case couldNotLaunchWallet
+  case signingFailed(Swift.Error)
+  case existingRequestInProgress
+}
+extension ImmutableXWalletSDK.ImmutableXWalletStatus : Swift.Equatable {}
+extension ImmutableXWalletSDK.ImmutableXWalletStatus : Swift.Hashable {}

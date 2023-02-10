@@ -1,0 +1,6 @@
+framework module ImmutableXCore {
+  umbrella header "ImmutableXCore-umbrella.h"
+
+  export *
+  module * { export * }
+}
