@@ -46,7 +46,6 @@
 		DA14D3F62997F87E0059EC86 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3F52997F87E0059EC86 /* AssetViewController.swift */; };
 		DA14D3F82997FEAB0059EC86 /* AssetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3F72997FEAB0059EC86 /* AssetViewCell.swift */; };
 		DA14D3FA29980BFB0059EC86 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3F929980BFB0059EC86 /* TopBarView.swift */; };
-		DA14D3FD29982AF40059EC86 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3FC29982AF40059EC86 /* GameOverViewController.swift */; };
 		DA14D3FF29982D100059EC86 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3FE29982D100059EC86 /* GameOverView.swift */; };
 		DAF71A912997AE90007D2332 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A902997AE90007D2332 /* UIView+Ext.swift */; };
 		DAF71A932997AEB8007D2332 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A922997AEB8007D2332 /* UIButton+Ext.swift */; };
@@ -585,7 +584,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UEA5XWCYV3;
+				DEVELOPMENT_TEAM = 288ZUH88HD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImmutableXApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -618,7 +617,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UEA5XWCYV3;
+				DEVELOPMENT_TEAM = 288ZUH88HD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImmutableXApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

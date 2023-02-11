@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.async {
 //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //            let destinationVC = storyboard.instantiateViewController(withIdentifier: "ARView") as! ViewController
-            let vc = GameOverViewController()
+            let vc = GameViewController()
             self.navigationController?.present(vc, animated: true)
         }
     }
