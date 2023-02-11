@@ -83,6 +83,14 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = overviews[indexPath.item]
+        let valueToStore = item.image
+        UserDefaults.standard.set(valueToStore, forKey: "character")
+        self.dismiss(animated: true)
+
+    }
 }
 
 struct overview {

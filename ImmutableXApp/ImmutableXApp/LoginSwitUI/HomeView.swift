@@ -76,9 +76,16 @@ struct HomeView: View {
         case .connecting:
             connectingView
         case let .connected(state):
-            connectedView(with: state)
+           //connectedView(with: state)
+           setUserDef(state: state)
         }
     }
+    
+    func setUserDef(state: ConnectedState) -> some View {
+        UserDefaults.standard.set(state.ethAddress, forKey: "address")
+        UserDefaults.standard.set(state.starkAddress, forKey: "starkAddress")
+          return Text("One")
+      }
 
     private var connectingView: some View {
         ProgressView {

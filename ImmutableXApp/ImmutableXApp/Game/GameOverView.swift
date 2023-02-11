@@ -1,6 +1,13 @@
 import UIKit
 
+protocol GameOverViewDelegate: AnyObject {
+    func GoHome()
+    func tryAgain()
+}
+
 class GameOverView: UIView {
+    
+    weak var delegate: GameOverViewDelegate?
     
     lazy var gameOverLabel: UILabel = {
         let text = UILabel()
@@ -21,6 +28,8 @@ class GameOverView: UIView {
         text.numberOfLines = 0
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .center
+        text.isUserInteractionEnabled = true
+        text.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tryAgain)))
         return text
     }()
     
@@ -32,6 +41,8 @@ class GameOverView: UIView {
         text.numberOfLines = 0
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .center
+        text.isUserInteractionEnabled = true
+        text.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(goHome)))
         return text
     }()
 
@@ -40,6 +51,16 @@ class GameOverView: UIView {
         layer.cornerRadius = 25
         layer.masksToBounds = true
         setUpView()
+    }
+    
+    @objc func tryAgain() {
+        print("try again")
+        delegate?.tryAgain()
+    }
+    
+    @objc func goHome() {
+        print("go home")
+        delegate?.GoHome()
     }
     
     private lazy var backgroundImageView: UIImageView = {
