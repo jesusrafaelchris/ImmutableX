@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vm = HomeViewModel()
         vm.state = .disconnected
         let vc = UIHostingController(rootView: HomeView(viewModel: vm))
-        window?.rootViewController = UINavigationController(rootViewController: vc)
+        window?.rootViewController = UINavigationController(rootViewController: GameViewController())
         window?.makeKeyAndVisible()
     }
 

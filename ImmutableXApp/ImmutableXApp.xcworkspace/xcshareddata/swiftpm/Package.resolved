@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "wink",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/toupper/Wink.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "dce36823c49b6e726dd4a6e4f365e1c54e200908"
+      }
+    }
+  ],
+  "version" : 2
+}
