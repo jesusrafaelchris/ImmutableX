@@ -40,11 +40,16 @@ class GameViewController: UIViewController {
         setupView()
         setupScene()
         setupCamera()
+        addLight()
         setupHUD()
         spawnCharacter()
-        addFacialExpressionDetector()
-        subscribeToFacialExpressionChanges()
-        //ground = spawnGround(at: SCNVector3(x: -2, y: 0, z: 0))
+        //addFacialExpressionDetector()
+        //subscribeToFacialExpressionChanges()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(flipGravity)))
+    }
+    
+    @objc func flipGravity() {
+        jumpBox(box: player)
     }
     
     // MARK: Setup methods
@@ -83,30 +88,50 @@ class GameViewController: UIViewController {
     
     func setupScene() {
         scnScene = SCNScene()
-        scnScene.background.contents = "GeometryFighter.scnassets/Textures/SkyGradient.png"
-        scnScene.physicsWorld.gravity = SCNVector3Make(0, -20, 0)
+        scnScene.background.contents = "GeometryFighter.scnassets/Textures/Gradient.png"
+        scnScene.physicsWorld.gravity = SCNVector3Make(0, -100, 0)
         scnView.scene = scnScene
+    }
+    
+    func addLight() {
+        let light = SCNLight()
+        light.type = .omni
+        light.color = UIColor.white
+
+        let lightNode = SCNNode()
+        lightNode.light = light
+        lightNode.position = SCNVector3(x: 0, y: 6, z: 25)
+        scnScene.rootNode.addChildNode(lightNode)
+
     }
     
     func setupCamera() {
         cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 0, y: 5, z: 20)
+        cameraNode.position = SCNVector3(x: 5, y: 6, z: 30)
+        //cameraNode.eulerAngles.y = -(.pi / 6)
         scnScene.rootNode.addChildNode(cameraNode)
     }
     
     func spawnCharacter() {
         var geometry: SCNGeometry
-        geometry = SCNBox(width: 2.0, height: 2.0, length: 1.5,
-                          chamferRadius: 0.0)
+        geometry = SCNBox(width: 2, height: 3, length: 3, chamferRadius: 0)
         geometry.materials.first?.diffuse.contents = UIColor.white
         player = SCNNode(geometry: geometry)
         player.name = "player"
-        player.physicsBody =
-        SCNPhysicsBody(type: .dynamic, shape: nil)
+        let physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
+        player.physicsBody = physicsBody
         player.position = SCNVector3(x: 0, y: 4, z: 0)
-        player.geometry?.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/Terry.png"
-        
+        let character = UserDefaults.standard.string(forKey: "character")
+        print(character)
+        if character == "" {
+            player.geometry?.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/BLM_Space.png"
+        }
+        else {
+            let charactersafe = character!
+            player.geometry?.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/\(charactersafe).png"
+        }
+
         scnScene.rootNode.addChildNode(player)
     }
     
@@ -135,7 +160,7 @@ class GameViewController: UIViewController {
             //create geometry
             var geometry = SCNGeometry()
             geometry = boxGeometry
-            geometry.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/wall.png"
+            geometry.materials.first?.diffuse.contents = UIColor.white//"GeometryFighter.scnassets/Textures/wall.png"
             
             //create node
             let geometryNode = SCNNode(geometry: geometry)
@@ -145,13 +170,13 @@ class GameViewController: UIViewController {
     
     func nextBlockSize() -> SCNBox {
         let width = [4,5,6,7,8,9,10].randomElement()
-        return SCNBox(width: CGFloat(width ?? 1), height: 1.0, length: 1.0, chamferRadius: 0.0)
+        return SCNBox(width: CGFloat(width ?? 1), height: 1.0, length: 2.0, chamferRadius: 0.0)
     }
     
     func spawnBottomBox() -> SCNNode {
         //bottom
         let width = [5,6,7,8,9,10].randomElement()
-        let bottomSize = SCNBox(width: CGFloat(width ?? 1), height: 1.0, length: 2.0, chamferRadius: 0.0)
+        let bottomSize = SCNBox(width: CGFloat(width ?? 1), height: 1.0, length: 5.0, chamferRadius: 0.0)
         let bottomColour = UIColor.white
         let bottomBox = spawnTerrainBox(
             with: bottomSize,
@@ -169,7 +194,7 @@ class GameViewController: UIViewController {
     func spawnTopBox() -> SCNNode {
         //top
         let width = [5,6,7,8,9,10].randomElement()
-        let topSize = SCNBox(width: CGFloat(width ?? 1), height: 1.0, length: 2.0, chamferRadius: 0.0)
+        let topSize = SCNBox(width: CGFloat(width ?? 1), height: 1.0, length: 5.0, chamferRadius: 0.0)
         let topColour = UIColor.white
         let topBox = spawnTerrainBox(
             with: topSize,
@@ -185,14 +210,14 @@ class GameViewController: UIViewController {
         return topBox
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first!
-        let location = touch.location(in: scnView)
-        let hitResults = scnView.hitTest(location, options: nil)
-        if let result = hitResults.first {
-            jumpBox(box: result.node)
-        }
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let touch = touches.first!
+//        let location = touch.location(in: scnView)
+//        let hitResults = scnView.hitTest(location, options: nil)
+//        if let result = hitResults.first {
+//            jumpBox(box: result.node)
+//        }
+//    }
     
     func spawnTerrain() {
         let bottom = spawnBottomBox()
@@ -221,7 +246,6 @@ class GameViewController: UIViewController {
         box.runAction(moveAction, completionHandler: {
             self.shouldKeepMoving = false
             if self.shouldKeepMoving {
-                print("should keep moving")
                 self.moveCharacterInXaxis(box: box, sign: sign)
             }
         })
@@ -235,8 +259,7 @@ extension GameViewController: SCNSceneRendererDelegate {
         
         for node in scnScene.rootNode.childNodes {
             if node.name == "player" {
-                print(node.presentation.position.y)
-                if node.presentation.position.y < -15 || node.presentation.position.y > 16  {
+                if node.presentation.position.y < -15 || node.presentation.position.y > 22  {
                     if didEndGame == false {
                         endGame()
                     }

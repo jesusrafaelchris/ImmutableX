@@ -33,9 +33,7 @@ class HomeViewController: UIViewController {
     @objc func didtapbox3() {
         
         DispatchQueue.main.async {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "ARView") as! ViewController
-            let vc = GameOverViewController()
+            let vc = GameViewController()
             self.navigationController?.present(vc, animated: true)
         }
     }
@@ -43,8 +41,6 @@ class HomeViewController: UIViewController {
     @objc func didtapbox2() {
         
         DispatchQueue.main.async {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "ARView") as! ViewController
             let vc = AssetViewController()
             self.navigationController?.present(vc, animated: true)
         }
@@ -53,8 +49,6 @@ class HomeViewController: UIViewController {
     @objc func didtapbox() {
         
         DispatchQueue.main.async {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "ARView") as! ViewController
             let vc = ProfileViewController()
             self.navigationController?.present(vc, animated: true)
         }
@@ -67,6 +61,7 @@ class HomeViewController: UIViewController {
         buttons.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didtapbox)))
         setUpView()
         view.backgroundColor = .white
+        HttpManager.shared.mintNFT()
     }
     func setUpView(){
         

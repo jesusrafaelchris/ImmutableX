@@ -1,19 +1,25 @@
 import UIKit
 
-class GameOverViewController: UIViewController {
+class GameOverViewController: UIViewController, GameOverViewDelegate {
+    func GoHome() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func tryAgain() {
+        self.dismiss(animated: true)
+    }
     
     lazy var gameoverView: GameOverView = {
         let view = GameOverView()
+        view.delegate = self
         return view
     }()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
         view.backgroundColor = .clear
     }
-    
     
     func setUpView() {
         view.addSubview(gameoverView)
