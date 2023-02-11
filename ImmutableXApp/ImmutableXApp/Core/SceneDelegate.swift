@@ -19,10 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let viewModel = LoginViewModel()
 //        viewModel.state = .disconnected
 //        let vc = LoginViewController(viewModel: viewModel)
-        let vm = HomeViewModel()
-        vm.state = .disconnected
-        let vc = UIHostingController(rootView: HomeView(viewModel: vm))
-        window?.rootViewController = UINavigationController(rootViewController: vc)
+//        let vm = HomeViewModel()
+//        vm.state = .disconnected
+//        let vc = UIHostingController(rootView: HomeView(viewModel: vm))
+        window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         window?.makeKeyAndVisible()
     }
 

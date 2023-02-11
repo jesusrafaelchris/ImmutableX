@@ -1,33 +1,17 @@
 import UIKit
 
-class PlayView: UIView {
+class AssetView: UIView {
     
     lazy var amountLabel: UILabel = {
         let text = UILabel()
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         text.font = UIFont.boldSystemFont(ofSize: 20)
-        text.text = "Play"
+        text.text = "My Assets"
         text.textColor = .white
         text.numberOfLines = 0
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .center
-        text.isUserInteractionEnabled = true
-        text.addGestureRecognizer(tapGestureRecognizer)
         return text
     }()
-    
-    @objc func handleTap() {
-        UIView.animate(withDuration: 0.1) {
-          self.amountLabel.textColor = .lightGray
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-          UIView.animate(withDuration: 0.1) {
-            self.amountLabel.textColor = .white
-          }
-        }
-      }
-
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,9 +28,9 @@ class PlayView: UIView {
     private lazy var gradientLayer: CAGradientLayer = {
         let l = CAGradientLayer()
         l.frame = self.bounds
-        l.colors = [UIColor.systemBlue.cgColor, UIColor.systemGreen.cgColor]
-        l.startPoint = CGPoint(x: 0, y: 0.5)
-        l.endPoint = CGPoint(x: 1, y: 0.5)
+        l.colors = [UIColor.systemRed.cgColor, UIColor.systemGreen.cgColor]
+        l.startPoint = CGPoint(x: 0, y: 0.3)
+        l.endPoint = CGPoint(x: 1, y: 0.3)
         l.cornerRadius = 16
         layer.insertSublayer(l, at: 0)
         return l
