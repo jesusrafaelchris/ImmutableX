@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		68E8984A9F906352232B250D /* Pods_ImmutableXApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F1A12B14BE74FCE4059324 /* Pods_ImmutableXApp.framework */; };
 		80AC39262996A4DB00734D0B /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC39252996A4DB00734D0B /* Optional.swift */; };
+		80AC39282996D77C00734D0B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC39272996D77C00734D0B /* GameViewController.swift */; };
+		80AC39812997AD6500734D0B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC39802997AD6500734D0B /* HomeViewController.swift */; };
+		80AC39842997AD9E00734D0B /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC39832997AD9E00734D0B /* TestingViewController.swift */; };
 		80CB00D2299696600064003F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB00D1299696600064003F /* AppDelegate.swift */; };
 		80CB00D4299696600064003F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB00D3299696600064003F /* SceneDelegate.swift */; };
 		80CB00D6299696600064003F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB00D5299696600064003F /* ViewController.swift */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		36F1A12B14BE74FCE4059324 /* Pods_ImmutableXApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImmutableXApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80AC39252996A4DB00734D0B /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		80AC39272996D77C00734D0B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		80AC39802997AD6500734D0B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		80AC39832997AD9E00734D0B /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		80CB00CE299696600064003F /* ImmutableXApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImmutableXApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80CB00D1299696600064003F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80CB00D3299696600064003F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +71,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		80AC397F2997AD5500734D0B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				80AC39802997AD6500734D0B /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		80AC39822997AD9100734D0B /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				80AC39832997AD9E00734D0B /* TestingViewController.swift */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
 		80CB00C5299696600064003F = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +109,11 @@
 			isa = PBXGroup;
 			children = (
 				80CB00E5299696700064003F /* Core */,
+				80AC39822997AD9100734D0B /* Testing */,
+				80AC397F2997AD5500734D0B /* Home */,
 				80CB00FC2996A2880064003F /* LoginSwitUI */,
 				80CB00DF299696630064003F /* Info.plist */,
+				80AC39272996D77C00734D0B /* GameViewController.swift */,
 			);
 			path = ImmutableXApp;
 			sourceTree = "<group>";
@@ -245,6 +270,7 @@
 			files = (
 				80CB00F4299696F00064003F /* LoginState.swift in Sources */,
 				80CB00F5299696F00064003F /* ConnectedState.swift in Sources */,
+				80AC39842997AD9E00734D0B /* TestingViewController.swift in Sources */,
 				80AC39262996A4DB00734D0B /* Optional.swift in Sources */,
 				80CB00FF2996A2920064003F /* HomeViewModel.swift in Sources */,
 				80CB01002996A2920064003F /* HomeView.swift in Sources */,
@@ -252,7 +278,9 @@
 				80CB00D2299696600064003F /* AppDelegate.swift in Sources */,
 				80CB00F3299696F00064003F /* ErrorModel.swift in Sources */,
 				80CB00D4299696600064003F /* SceneDelegate.swift in Sources */,
+				80AC39282996D77C00734D0B /* GameViewController.swift in Sources */,
 				80CB01022996A2CD0064003F /* HomeViewController.swift in Sources */,
+				80AC39812997AD6500734D0B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
