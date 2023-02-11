@@ -37,6 +37,17 @@
 		80CB00F5299696F00064003F /* ConnectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB00F2299696F00064003F /* ConnectedState.swift */; };
 		80CB00FF2996A2920064003F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB00FD2996A2920064003F /* HomeViewModel.swift */; };
 		80CB01002996A2920064003F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB00FE2996A2920064003F /* HomeView.swift */; };
+		DA14D3E92997BDBB0059EC86 /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3E82997BDBB0059EC86 /* AssetView.swift */; };
+		DA14D3EB2997C04D0059EC86 /* GrayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3EA2997C04D0059EC86 /* GrayButtonView.swift */; };
+		DA14D3ED2997C05D0059EC86 /* GrayButtonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3EC2997C05D0059EC86 /* GrayButtonTextView.swift */; };
+		DA14D3EF2997C0830059EC86 /* GrayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3EE2997C0830059EC86 /* GrayButton.swift */; };
+		DA14D3F12997D5180059EC86 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3F02997D5180059EC86 /* ProfileViewController.swift */; };
+		DA14D3F32997D8310059EC86 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3F22997D8310059EC86 /* ProfileView.swift */; };
+		DA14D3F62997F87E0059EC86 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3F52997F87E0059EC86 /* AssetViewController.swift */; };
+		DA14D3F82997FEAB0059EC86 /* AssetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3F72997FEAB0059EC86 /* AssetViewCell.swift */; };
+		DA14D3FA29980BFB0059EC86 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3F929980BFB0059EC86 /* TopBarView.swift */; };
+		DA14D3FD29982AF40059EC86 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3FC29982AF40059EC86 /* GameOverViewController.swift */; };
+		DA14D3FF29982D100059EC86 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3FE29982D100059EC86 /* GameOverView.swift */; };
 		DAF71A912997AE90007D2332 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A902997AE90007D2332 /* UIView+Ext.swift */; };
 		DAF71A932997AEB8007D2332 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A922997AEB8007D2332 /* UIButton+Ext.swift */; };
 		DAF71A952997AED7007D2332 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A942997AED7007D2332 /* UILabel+Ext.swift */; };
@@ -80,6 +91,17 @@
 		80CB00FE2996A2920064003F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		890EEEF61264A157E57FE9FE /* Pods-ImmutableXApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImmutableXApp.release.xcconfig"; path = "Target Support Files/Pods-ImmutableXApp/Pods-ImmutableXApp.release.xcconfig"; sourceTree = "<group>"; };
 		CF7CAC18D586621601DDF87D /* Pods-ImmutableXApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImmutableXApp.debug.xcconfig"; path = "Target Support Files/Pods-ImmutableXApp/Pods-ImmutableXApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DA14D3E82997BDBB0059EC86 /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
+		DA14D3EA2997C04D0059EC86 /* GrayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayButtonView.swift; sourceTree = "<group>"; };
+		DA14D3EC2997C05D0059EC86 /* GrayButtonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayButtonTextView.swift; sourceTree = "<group>"; };
+		DA14D3EE2997C0830059EC86 /* GrayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayButton.swift; sourceTree = "<group>"; };
+		DA14D3F02997D5180059EC86 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DA14D3F22997D8310059EC86 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DA14D3F52997F87E0059EC86 /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
+		DA14D3F72997FEAB0059EC86 /* AssetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewCell.swift; sourceTree = "<group>"; };
+		DA14D3F929980BFB0059EC86 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		DA14D3FC29982AF40059EC86 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		DA14D3FE29982D100059EC86 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		DAF71A902997AE90007D2332 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		DAF71A922997AEB8007D2332 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		DAF71A942997AED7007D2332 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
@@ -115,6 +137,13 @@
 			children = (
 				80AC39802997AD6500734D0B /* HomeViewController.swift */,
 				DAF71A9A2997AFC6007D2332 /* PlayView.swift */,
+				DA14D3E82997BDBB0059EC86 /* AssetView.swift */,
+				DA14D3EA2997C04D0059EC86 /* GrayButtonView.swift */,
+				DA14D3EC2997C05D0059EC86 /* GrayButtonTextView.swift */,
+				DA14D3EE2997C0830059EC86 /* GrayButton.swift */,
+				DA14D3F02997D5180059EC86 /* ProfileViewController.swift */,
+				DA14D3F22997D8310059EC86 /* ProfileView.swift */,
+				DA14D3F929980BFB0059EC86 /* TopBarView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -167,6 +196,7 @@
 		80CB00D0299696600064003F /* ImmutableXApp */ = {
 			isa = PBXGroup;
 			children = (
+				DA14D3FB29982AD50059EC86 /* Game */,
 				80AC39A52998310400734D0B /* Background.png */,
 				80AC39892997BDEF00734D0B /* Resources */,
 				80AC39852997B9E800734D0B /* GeometryFighter.scnassets */,
@@ -174,6 +204,7 @@
 				80CB00E5299696700064003F /* Core */,
 				80AC39822997AD9100734D0B /* Testing */,
 				80AC397F2997AD5500734D0B /* Home */,
+				DA14D3F42997F8670059EC86 /* ViewAssets */,
 				80CB00FC2996A2880064003F /* LoginSwitUI */,
 				80CB00DF299696630064003F /* Info.plist */,
 			);
@@ -204,6 +235,24 @@
 				80AC39252996A4DB00734D0B /* Optional.swift */,
 			);
 			path = LoginSwitUI;
+			sourceTree = "<group>";
+		};
+		DA14D3F42997F8670059EC86 /* ViewAssets */ = {
+			isa = PBXGroup;
+			children = (
+				DA14D3F52997F87E0059EC86 /* AssetViewController.swift */,
+				DA14D3F72997FEAB0059EC86 /* AssetViewCell.swift */,
+			);
+			path = ViewAssets;
+			sourceTree = "<group>";
+		};
+		DA14D3FB29982AD50059EC86 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				DA14D3FC29982AF40059EC86 /* GameOverViewController.swift */,
+				DA14D3FE29982D100059EC86 /* GameOverView.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 		DAF71A8F2997AE81007D2332 /* Extensions */ = {
@@ -349,14 +398,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA14D3EF2997C0830059EC86 /* GrayButton.swift in Sources */,
 				80CB00F4299696F00064003F /* LoginState.swift in Sources */,
 				DAF71A9B2997AFC6007D2332 /* PlayView.swift in Sources */,
 				80CB00F5299696F00064003F /* ConnectedState.swift in Sources */,
 				80AC39262996A4DB00734D0B /* Optional.swift in Sources */,
 				80AC39882997BC5400734D0B /* ShapeTypeEnum.swift in Sources */,
 				DAF71A912997AE90007D2332 /* UIView+Ext.swift in Sources */,
+				DA14D3F82997FEAB0059EC86 /* AssetViewCell.swift in Sources */,
+				DA14D3F62997F87E0059EC86 /* AssetViewController.swift in Sources */,
+				DA14D3E92997BDBB0059EC86 /* AssetView.swift in Sources */,
+				DA14D3FA29980BFB0059EC86 /* TopBarView.swift in Sources */,
+				DA14D3FF29982D100059EC86 /* GameOverView.swift in Sources */,
 				DAF71A932997AEB8007D2332 /* UIButton+Ext.swift in Sources */,
 				DAF71A972997AEE9007D2332 /* UIColor+Ext.swift in Sources */,
+				DA14D3EB2997C04D0059EC86 /* GrayButtonView.swift in Sources */,
 				DAF71A952997AED7007D2332 /* UILabel+Ext.swift in Sources */,
 				80AC399E2997DF7E00734D0B /* GameViewModel.swift in Sources */,
 				80CB00FF2996A2920064003F /* HomeViewModel.swift in Sources */,
@@ -369,7 +425,10 @@
 				80AC39912997BDFF00734D0B /* UIColor+Extensions.swift in Sources */,
 				80CB01002996A2920064003F /* HomeView.swift in Sources */,
 				80CB00D6299696600064003F /* ViewController.swift in Sources */,
+				DA14D3F12997D5180059EC86 /* ProfileViewController.swift in Sources */,
+				DA14D3F32997D8310059EC86 /* ProfileView.swift in Sources */,
 				80CB00D2299696600064003F /* AppDelegate.swift in Sources */,
+				DA14D3ED2997C05D0059EC86 /* GrayButtonTextView.swift in Sources */,
 				80CB00F3299696F00064003F /* ErrorModel.swift in Sources */,
 				80AC39A2299809F800734D0B /* SCNNode+Ext.swift in Sources */,
 				80CB00D4299696600064003F /* SceneDelegate.swift in Sources */,
