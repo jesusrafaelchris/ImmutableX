@@ -23,7 +23,12 @@
 		80CB00F5299696F00064003F /* ConnectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB00F2299696F00064003F /* ConnectedState.swift */; };
 		80CB00FF2996A2920064003F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB00FD2996A2920064003F /* HomeViewModel.swift */; };
 		80CB01002996A2920064003F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB00FE2996A2920064003F /* HomeView.swift */; };
-		80CB01022996A2CD0064003F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB01012996A2CD0064003F /* HomeViewController.swift */; };
+		DAF71A912997AE90007D2332 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A902997AE90007D2332 /* UIView+Ext.swift */; };
+		DAF71A932997AEB8007D2332 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A922997AEB8007D2332 /* UIButton+Ext.swift */; };
+		DAF71A952997AED7007D2332 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A942997AED7007D2332 /* UILabel+Ext.swift */; };
+		DAF71A972997AEE9007D2332 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A962997AEE9007D2332 /* UIColor+Ext.swift */; };
+		DAF71A992997AEF8007D2332 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A982997AEF8007D2332 /* UICollectionView+Ext.swift */; };
+		DAF71A9B2997AFC6007D2332 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A9A2997AFC6007D2332 /* PlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +50,14 @@
 		80CB00F2299696F00064003F /* ConnectedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectedState.swift; sourceTree = "<group>"; };
 		80CB00FD2996A2920064003F /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		80CB00FE2996A2920064003F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		80CB01012996A2CD0064003F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		890EEEF61264A157E57FE9FE /* Pods-ImmutableXApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImmutableXApp.release.xcconfig"; path = "Target Support Files/Pods-ImmutableXApp/Pods-ImmutableXApp.release.xcconfig"; sourceTree = "<group>"; };
 		CF7CAC18D586621601DDF87D /* Pods-ImmutableXApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImmutableXApp.debug.xcconfig"; path = "Target Support Files/Pods-ImmutableXApp/Pods-ImmutableXApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DAF71A902997AE90007D2332 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		DAF71A922997AEB8007D2332 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		DAF71A942997AED7007D2332 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
+		DAF71A962997AEE9007D2332 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		DAF71A982997AEF8007D2332 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
+		DAF71A9A2997AFC6007D2332 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				80AC39802997AD6500734D0B /* HomeViewController.swift */,
+				DAF71A9A2997AFC6007D2332 /* PlayView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -108,6 +119,7 @@
 		80CB00D0299696600064003F /* ImmutableXApp */ = {
 			isa = PBXGroup;
 			children = (
+				DAF71A8F2997AE81007D2332 /* Extensions */,
 				80CB00E5299696700064003F /* Core */,
 				80AC39822997AD9100734D0B /* Testing */,
 				80AC397F2997AD5500734D0B /* Home */,
@@ -139,10 +151,21 @@
 				80CB00F1299696F00064003F /* LoginState.swift */,
 				80CB00FE2996A2920064003F /* HomeView.swift */,
 				80CB00FD2996A2920064003F /* HomeViewModel.swift */,
-				80CB01012996A2CD0064003F /* HomeViewController.swift */,
 				80AC39252996A4DB00734D0B /* Optional.swift */,
 			);
 			path = LoginSwitUI;
+			sourceTree = "<group>";
+		};
+		DAF71A8F2997AE81007D2332 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DAF71A902997AE90007D2332 /* UIView+Ext.swift */,
+				DAF71A922997AEB8007D2332 /* UIButton+Ext.swift */,
+				DAF71A942997AED7007D2332 /* UILabel+Ext.swift */,
+				DAF71A962997AEE9007D2332 /* UIColor+Ext.swift */,
+				DAF71A982997AEF8007D2332 /* UICollectionView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FC26FB823E130F50D8FE7448 /* Frameworks */ = {
@@ -269,9 +292,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				80CB00F4299696F00064003F /* LoginState.swift in Sources */,
+				DAF71A9B2997AFC6007D2332 /* PlayView.swift in Sources */,
 				80CB00F5299696F00064003F /* ConnectedState.swift in Sources */,
 				80AC39842997AD9E00734D0B /* TestingViewController.swift in Sources */,
 				80AC39262996A4DB00734D0B /* Optional.swift in Sources */,
+				DAF71A912997AE90007D2332 /* UIView+Ext.swift in Sources */,
+				DAF71A932997AEB8007D2332 /* UIButton+Ext.swift in Sources */,
+				DAF71A972997AEE9007D2332 /* UIColor+Ext.swift in Sources */,
+				DAF71A952997AED7007D2332 /* UILabel+Ext.swift in Sources */,
 				80CB00FF2996A2920064003F /* HomeViewModel.swift in Sources */,
 				80CB01002996A2920064003F /* HomeView.swift in Sources */,
 				80CB00D6299696600064003F /* ViewController.swift in Sources */,
@@ -279,7 +307,7 @@
 				80CB00F3299696F00064003F /* ErrorModel.swift in Sources */,
 				80CB00D4299696600064003F /* SceneDelegate.swift in Sources */,
 				80AC39282996D77C00734D0B /* GameViewController.swift in Sources */,
-				80CB01022996A2CD0064003F /* HomeViewController.swift in Sources */,
+				DAF71A992997AEF8007D2332 /* UICollectionView+Ext.swift in Sources */,
 				80AC39812997AD6500734D0B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,7 +456,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UEA5XWCYV3;
+				DEVELOPMENT_TEAM = 288ZUH88HD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImmutableXApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -461,7 +489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UEA5XWCYV3;
+				DEVELOPMENT_TEAM = 288ZUH88HD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImmutableXApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
