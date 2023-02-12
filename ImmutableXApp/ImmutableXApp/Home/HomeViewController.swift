@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
         
         DispatchQueue.main.async {
             let vc = GameViewController()
-            self.navigationController?.present(vc, animated: true)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -86,7 +86,8 @@ class HomeViewController: UIViewController {
         assetView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didtapbox2)))
         buttons.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didtapbox)))
         setUpView()
-        HttpManager.shared.mintNFT()
+        view.backgroundColor = .white
+        //HttpManager.shared.mintNFT()
     }
     func setUpView(){
         

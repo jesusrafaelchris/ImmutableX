@@ -22,14 +22,19 @@ class GameViewController: UIViewController {
     let kGroundSpeed: CGFloat = 150.0
     var lastBottomBoxMaxX: CGFloat?
     var lastTopBoxMaxX: CGFloat?
+    var lastCoinBoxMaxX: CGFloat?
     var shouldKeepMoving = true
     var didEndGame = false
+    var playerAngle: Float = 0
+    var coins = [SCNNode]()
+    private var timer: Timer!
+    private var seconds = 0
     
     lazy var scnView: SCNView = {
         let sceneView = SCNView()
         sceneView.translatesAutoresizingMaskIntoConstraints = false
         sceneView.showsStatistics = true
-        sceneView.allowsCameraControl = false
+        sceneView.allowsCameraControl = true
         sceneView.autoenablesDefaultLighting = true
         sceneView.delegate = self
         return sceneView
@@ -45,11 +50,14 @@ class GameViewController: UIViewController {
         spawnCharacter()
         //addFacialExpressionDetector()
         //subscribeToFacialExpressionChanges()
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(flipGravity)))
+        setupBarriers()
+        spawnCoins()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
-    @objc func flipGravity() {
-        jumpBox(box: player)
+    @objc func updateTimer() {
+        seconds += 1
+        //timerLabel.text = String(format: "%.1f", elapsedTime)
     }
     
     // MARK: Setup methods
@@ -88,7 +96,17 @@ class GameViewController: UIViewController {
     
     func setupScene() {
         scnScene = SCNScene()
-        scnScene.background.contents = "GeometryFighter.scnassets/Textures/Gradient.png"
+        
+        
+        let character = UserDefaults.standard.string(forKey: "character")
+        if character == "BLM_Space" {
+            addPlanet()
+            scnScene.background.contents = "GeometryFighter.scnassets/Textures/SkyGradient.png"
+        }
+        else {
+            scnScene.background.contents = "GeometryFighter.scnassets/Textures/Gradient.png"
+        }
+        scnScene.physicsWorld.contactDelegate = self
         scnScene.physicsWorld.gravity = SCNVector3Make(0, -100, 0)
         scnView.scene = scnScene
     }
@@ -102,36 +120,119 @@ class GameViewController: UIViewController {
         lightNode.light = light
         lightNode.position = SCNVector3(x: 0, y: 6, z: 25)
         scnScene.rootNode.addChildNode(lightNode)
-
     }
     
     func setupCamera() {
         cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 5, y: 6, z: 30)
+        cameraNode.position = SCNVector3(x: 5, y: 6, z: 35)
         //cameraNode.eulerAngles.y = -(.pi / 6)
         scnScene.rootNode.addChildNode(cameraNode)
     }
     
+    func addPlanet() {
+        var geometry: SCNGeometry
+        geometry = SCNPlane(width: 40, height: 30)
+        let planet = SCNNode(geometry: geometry)
+        planet.name = "planet"
+        planet.castsShadow = true
+        planet.geometry?.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/MoonImage.png"
+        let physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+        planet.physicsBody = physicsBody
+        planet.physicsBody?.angularVelocityFactor = SCNVector3(x: 0, y: 0, z: 0)
+        planet.position = SCNVector3(x: 20, y: 30, z: -50)
+        scnScene.rootNode.addChildNode(planet)
+        moveObjectInXaxis(box: planet, sign: -1, amount: 2, speed: 20)
+        addClouds()
+    }
+    
+    func generateCloud(position: SCNVector3) -> SCNNode {
+        var geometry: SCNGeometry
+        geometry = SCNPlane(width: 30, height: 25)
+        let planet = SCNNode(geometry: geometry)
+        planet.name = "clouds"
+        planet.castsShadow = true
+        planet.geometry?.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/Clouds.png"
+        let physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+        planet.physicsBody = physicsBody
+        planet.position = position
+        return planet
+    }
+    
+    func addClouds() {
+        let cloud1 = generateCloud(position: SCNVector3(x: -5, y: 5, z: -60))
+        let cloud2 = generateCloud(position: SCNVector3(x: 25, y: 5, z: -60))
+        scnScene.rootNode.addChildNode(cloud1)
+        scnScene.rootNode.addChildNode(cloud2)
+        moveObjectInXaxis(box: cloud1, sign: -1, amount: 2, speed: 20)
+        moveObjectInXaxis(box: cloud2, sign: -1, amount: 2, speed: 20)
+    }
+    
+    // 1
+    func createTrail(color: UIColor, geometry: SCNGeometry) ->
+      SCNParticleSystem {
+      // 2
+      let trail = SCNParticleSystem(named: "Trail.scnp", inDirectory: nil)!
+      // 3
+      trail.particleColor = color
+      // 4
+      trail.emitterShape = nil
+      // 5
+      return trail
+    }
+    
+    func spawnCoins() {
+        var geometry: SCNGeometry
+        geometry = SCNPlane(width: 3, height: 3)
+        let coin = SCNNode(geometry: geometry)
+        coin.name = "coin"
+        coin.castsShadow = true
+        coin.geometry?.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/IMX.png"
+        let physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+        coin.physicsBody = physicsBody
+        let width = [30, 50, 80].randomElement()
+        coin.physicsBody?.angularVelocityFactor = SCNVector3(x: 0, y: 0, z: 0)
+        coin.position = SCNVector3(x: Float(coin.width) + Float(lastCoinBoxMaxX ?? 0) + Float(width ?? 0), y: 4, z: 0)
+        lastCoinBoxMaxX = CGFloat(coin.width) + (lastCoinBoxMaxX ?? 0)
+        coins.append(coin)
+        coin.physicsBody!.contactTestBitMask = coin.physicsBody!.collisionBitMask
+        scnScene.rootNode.addChildNode(coin)
+        moveInXaxis(box: coin, sign: -1)
+    }
+    
+    func setupBarriers() {
+        let backBarrier = spawnTerrainBox(with: SCNBox(width: 20, height: 20, length: 1, chamferRadius: 0), colour: .clear)
+        backBarrier.position = SCNVector3(x: 0, y: 0, z: -3.2)
+        
+        let frontBarrier = spawnTerrainBox(with: SCNBox(width: 20, height: 20, length: 1, chamferRadius: 0), colour: .clear)
+        frontBarrier.position = SCNVector3(x: 0, y: 0, z: 3.2)
+        
+        scnScene.rootNode.addChildNode(backBarrier)
+        scnScene.rootNode.addChildNode(frontBarrier)
+    }
+    
     func spawnCharacter() {
         var geometry: SCNGeometry
-        geometry = SCNBox(width: 2, height: 3, length: 3, chamferRadius: 0)
-        geometry.materials.first?.diffuse.contents = UIColor.white
+        geometry = SCNPlane(width: 3, height: 3)
+        //geometry.materials.first?.diffuse.contents = returnMaterialColour()
         player = SCNNode(geometry: geometry)
         player.name = "player"
+        player.castsShadow = false
         let physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         player.physicsBody = physicsBody
+        //player.physicsBody?.angularVelocity = SCNVector4(0, 0, 0, 0)
+        player.physicsBody?.angularVelocityFactor = SCNVector3(x: 0, y: 0, z: 0)
         player.position = SCNVector3(x: 0, y: 4, z: 0)
         let character = UserDefaults.standard.string(forKey: "character")
-        print(character)
         if character == "" {
             player.geometry?.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/BLM_Space.png"
         }
         else {
             let charactersafe = character!
-            player.geometry?.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/\(charactersafe).png"
+            player.geometry?.materials.first?.diffuse.contents =  "GeometryFighter.scnassets/Textures/\(charactersafe).png"
         }
-
+        let trailEmitter = createTrail(color: .red, geometry: geometry)
+        player.addParticleSystem(trailEmitter)
         scnScene.rootNode.addChildNode(player)
     }
     
@@ -146,7 +247,15 @@ class GameViewController: UIViewController {
     func jumpBox(box: SCNNode) {
         flipped = -1 * flipped
         scnScene.physicsWorld.gravity = SCNVector3Make(0, flipped * 100, 0)
-        // moveCharacterInXaxis(box: box, sign: 1)
+        if playerAngle == 0 {
+            player.eulerAngles.z = .pi
+            playerAngle = .pi
+        }
+        else if playerAngle == .pi {
+            player.eulerAngles.z = 0
+            playerAngle = 0
+        }
+        
     }
     
     func setupHUD() {
@@ -160,7 +269,21 @@ class GameViewController: UIViewController {
             //create geometry
             var geometry = SCNGeometry()
             geometry = boxGeometry
-            geometry.materials.first?.diffuse.contents = UIColor.white//"GeometryFighter.scnassets/Textures/wall.png"
+            geometry.materials.first?.diffuse.contents = colour //"GeometryFighter.scnassets/Textures/wall.png"
+            
+            //create node
+            let geometryNode = SCNNode(geometry: geometry)
+            geometryNode.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+            return geometryNode
+        }
+    
+    func spawnPlane(
+        with boxGeometry: SCNPlane,
+        colour: UIColor) -> SCNNode {
+            //create geometry
+            var geometry = SCNGeometry()
+            geometry = boxGeometry
+            geometry.materials.first?.diffuse.contents = colour //"GeometryFighter.scnassets/Textures/wall.png"
             
             //create node
             let geometryNode = SCNNode(geometry: geometry)
@@ -176,11 +299,15 @@ class GameViewController: UIViewController {
     func spawnBottomBox() -> SCNNode {
         //bottom
         let width = [5,6,7,8,9,10].randomElement()
-        let bottomSize = SCNBox(width: CGFloat(width ?? 1), height: 1.0, length: 5.0, chamferRadius: 0.0)
+        let bottomSize = SCNBox(width: CGFloat(width ?? 1), height: 1.0, length: 5.0, chamferRadius: 1.0)
         let bottomColour = UIColor.white
         let bottomBox = spawnTerrainBox(
             with: bottomSize,
             colour: bottomColour)
+        let character = UserDefaults.standard.string(forKey: "character")
+        if character == "BLM_Space" {
+            bottomBox.geometry?.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/wall.png"
+        }
         if let lastTopBoxMaxX = lastTopBoxMaxX {
             bottomBox.position = SCNVector3(x: Float(bottomBox.width) + Float(lastTopBoxMaxX / 2), y: 0, z: 0.0)
             lastBottomBoxMaxX = CGFloat(bottomBox.width) + lastTopBoxMaxX
@@ -194,11 +321,15 @@ class GameViewController: UIViewController {
     func spawnTopBox() -> SCNNode {
         //top
         let width = [5,6,7,8,9,10].randomElement()
-        let topSize = SCNBox(width: CGFloat(width ?? 1), height: 1.0, length: 5.0, chamferRadius: 0.0)
+        let topSize = SCNBox(width: CGFloat(width ?? 1), height: 1.0, length: 5.0, chamferRadius: 1.0)
         let topColour = UIColor.white
         let topBox = spawnTerrainBox(
             with: topSize,
             colour: topColour)
+        let character = UserDefaults.standard.string(forKey: "character")
+        if character == "BLM_Space" {
+            topBox.geometry?.materials.first?.diffuse.contents = "GeometryFighter.scnassets/Textures/wall.png"
+        }
         if let lastBottomBoxMaxX = lastBottomBoxMaxX {
             topBox.position = SCNVector3(x: Float(topBox.width) + Float(lastBottomBoxMaxX / 2), y: 8, z: 0.0)
             lastTopBoxMaxX = CGFloat(topBox.width) + lastBottomBoxMaxX
@@ -210,14 +341,9 @@ class GameViewController: UIViewController {
         return topBox
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        let touch = touches.first!
-//        let location = touch.location(in: scnView)
-//        let hitResults = scnView.hitTest(location, options: nil)
-//        if let result = hitResults.first {
-//            jumpBox(box: result.node)
-//        }
-//    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        jumpBox(box: player)
+    }
     
     func spawnTerrain() {
         let bottom = spawnBottomBox()
@@ -236,6 +362,15 @@ class GameViewController: UIViewController {
             if true {
                 self.moveInXaxis(box: box, sign: sign)
                 //box.removeFromParentNode()
+            }
+        })
+    }
+    
+    func moveObjectInXaxis(box: SCNNode, sign: Int, amount: Int, speed: CGFloat) {
+        let moveAction = SCNAction.moveBy(x: CGFloat(sign * amount), y: 0, z: 0, duration: speed)
+        box.runAction(moveAction, completionHandler: {
+            if true {
+                self.moveObjectInXaxis(box: box, sign: sign, amount: amount, speed: speed)
             }
         })
     }
@@ -269,11 +404,13 @@ extension GameViewController: SCNSceneRendererDelegate {
         
         if time > spawnTime {
             spawnTerrain()
+            spawnCoins()
             //remove last block
             //cleanScene()
             spawnTime = time + TimeInterval(Float.random(min: 0.2, max: 1.5))
         }
-        game.updateHUD()
+        
+        game.updateHUD(time: "\(seconds)")
     }
     
     func endGame() {
@@ -284,6 +421,18 @@ extension GameViewController: SCNSceneRendererDelegate {
             let gameOverScreen = GameOverViewController()
             //gameOverScreen.score = score
             self.present(gameOverScreen, animated: true, completion: nil)
+        }
+    }
+}
+
+extension GameViewController: SCNPhysicsContactDelegate {
+    
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        if contact.nodeA.name == "player" {
+            let contactX = contact.contactPoint.x.rounded()
+            let coinAtX = coins.first
+            coinAtX?.removeFromParentNode()
+            coins.remove(at: 0)
         }
     }
 }

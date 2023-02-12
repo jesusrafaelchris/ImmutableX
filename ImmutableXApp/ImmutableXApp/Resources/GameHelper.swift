@@ -73,10 +73,9 @@ class GameHelper {
     hudNode.rotation = SCNVector4(x: 1, y: 0, z: 0, w: 3.14159265)
   }
   
-  func updateHUD() {
-    let scoreFormatted = String(format: "%0\(4)d", score)
-    let highScoreFormatted = String(format: "%0\(4)d", highScore)
-    labelNode.text = "Score: \(highScoreFormatted)"
+    func updateHUD(time: String) {
+    let scoreFormatted = String(format: "%0\(3)d", time)
+    labelNode.text = "Score: \(time)"
   }
   
   func loadSound(_ name:String, fileNamed:String) {
