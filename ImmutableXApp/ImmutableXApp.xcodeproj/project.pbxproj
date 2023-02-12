@@ -47,6 +47,12 @@
 		DA14D3F82997FEAB0059EC86 /* AssetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3F72997FEAB0059EC86 /* AssetViewCell.swift */; };
 		DA14D3FA29980BFB0059EC86 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3F929980BFB0059EC86 /* TopBarView.swift */; };
 		DA14D3FF29982D100059EC86 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D3FE29982D100059EC86 /* GameOverView.swift */; };
+		DA14D401299891FB0059EC86 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D400299891FB0059EC86 /* MarketView.swift */; };
+		DA14D4042998D9B10059EC86 /* MarketplaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D4032998D9B10059EC86 /* MarketplaceViewController.swift */; };
+		DA14D4062998DAB30059EC86 /* StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D4052998DAB30059EC86 /* StatsCell.swift */; };
+		DA14D4082998DAC50059EC86 /* OverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D4072998DAC50059EC86 /* OverviewCell.swift */; };
+		DA14D40A2998DCE40059EC86 /* ForyouMarketplaceSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D4092998DCE40059EC86 /* ForyouMarketplaceSlider.swift */; };
+		DA14D40C2998FC5C0059EC86 /* Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA14D40B2998FC5C0059EC86 /* Font.ttf */; };
 		DAF71A912997AE90007D2332 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A902997AE90007D2332 /* UIView+Ext.swift */; };
 		DAF71A932997AEB8007D2332 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A922997AEB8007D2332 /* UIButton+Ext.swift */; };
 		DAF71A952997AED7007D2332 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71A942997AED7007D2332 /* UILabel+Ext.swift */; };
@@ -100,6 +106,12 @@
 		DA14D3F72997FEAB0059EC86 /* AssetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewCell.swift; sourceTree = "<group>"; };
 		DA14D3F929980BFB0059EC86 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		DA14D3FE29982D100059EC86 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		DA14D400299891FB0059EC86 /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
+		DA14D4032998D9B10059EC86 /* MarketplaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceViewController.swift; sourceTree = "<group>"; };
+		DA14D4052998DAB30059EC86 /* StatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCell.swift; sourceTree = "<group>"; };
+		DA14D4072998DAC50059EC86 /* OverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCell.swift; sourceTree = "<group>"; };
+		DA14D4092998DCE40059EC86 /* ForyouMarketplaceSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForyouMarketplaceSlider.swift; sourceTree = "<group>"; };
+		DA14D40B2998FC5C0059EC86 /* Font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Font.ttf; sourceTree = "<group>"; };
 		DAF71A902997AE90007D2332 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		DAF71A922997AEB8007D2332 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		DAF71A942997AED7007D2332 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
@@ -133,9 +145,11 @@
 		80AC397F2997AD5500734D0B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DA14D40B2998FC5C0059EC86 /* Font.ttf */,
 				80AC39802997AD6500734D0B /* HomeViewController.swift */,
 				DAF71A9A2997AFC6007D2332 /* PlayView.swift */,
 				DA14D3E82997BDBB0059EC86 /* AssetView.swift */,
+				DA14D400299891FB0059EC86 /* MarketView.swift */,
 				DA14D3EA2997C04D0059EC86 /* GrayButtonView.swift */,
 				DA14D3EC2997C05D0059EC86 /* GrayButtonTextView.swift */,
 				DA14D3EE2997C0830059EC86 /* GrayButton.swift */,
@@ -200,6 +214,7 @@
 		80CB00D0299696600064003F /* ImmutableXApp */ = {
 			isa = PBXGroup;
 			children = (
+				DA14D4022998D9A20059EC86 /* Marketplace */,
 				80AC39AA2998556000734D0B /* Api */,
 				DA14D3FB29982AD50059EC86 /* Game */,
 				80AC39A52998310400734D0B /* Background.png */,
@@ -258,6 +273,17 @@
 				80AC39A82998416E00734D0B /* GameOverViewController.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		DA14D4022998D9A20059EC86 /* Marketplace */ = {
+			isa = PBXGroup;
+			children = (
+				DA14D4032998D9B10059EC86 /* MarketplaceViewController.swift */,
+				DA14D4052998DAB30059EC86 /* StatsCell.swift */,
+				DA14D4072998DAC50059EC86 /* OverviewCell.swift */,
+				DA14D4092998DCE40059EC86 /* ForyouMarketplaceSlider.swift */,
+			);
+			path = Marketplace;
 			sourceTree = "<group>";
 		};
 		DAF71A8F2997AE81007D2332 /* Extensions */ = {
@@ -347,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA14D40C2998FC5C0059EC86 /* Font.ttf in Resources */,
 				80AC39AE2998E9C800734D0B /* Trail.scnp in Resources */,
 				80CB00DE299696630064003F /* LaunchScreen.storyboard in Resources */,
 				80CB00DB299696630064003F /* Assets.xcassets in Resources */,
@@ -407,6 +434,7 @@
 				DA14D3EF2997C0830059EC86 /* GrayButton.swift in Sources */,
 				80CB00F4299696F00064003F /* LoginState.swift in Sources */,
 				DAF71A9B2997AFC6007D2332 /* PlayView.swift in Sources */,
+				DA14D4062998DAB30059EC86 /* StatsCell.swift in Sources */,
 				80CB00F5299696F00064003F /* ConnectedState.swift in Sources */,
 				80AC39A92998416E00734D0B /* GameOverViewController.swift in Sources */,
 				80AC39262996A4DB00734D0B /* Optional.swift in Sources */,
@@ -419,6 +447,7 @@
 				DAF71A932997AEB8007D2332 /* UIButton+Ext.swift in Sources */,
 				DAF71A972997AEE9007D2332 /* UIColor+Ext.swift in Sources */,
 				DA14D3EB2997C04D0059EC86 /* GrayButtonView.swift in Sources */,
+				DA14D40A2998DCE40059EC86 /* ForyouMarketplaceSlider.swift in Sources */,
 				DAF71A952997AED7007D2332 /* UILabel+Ext.swift in Sources */,
 				80AC399E2997DF7E00734D0B /* GameViewModel.swift in Sources */,
 				80CB00FF2996A2920064003F /* HomeViewModel.swift in Sources */,
@@ -430,12 +459,15 @@
 				80CB01002996A2920064003F /* HomeView.swift in Sources */,
 				80AC39AC2998556D00734D0B /* HttpManager.swift in Sources */,
 				80CB00D6299696600064003F /* ViewController.swift in Sources */,
+				DA14D401299891FB0059EC86 /* MarketView.swift in Sources */,
 				DA14D3F12997D5180059EC86 /* ProfileViewController.swift in Sources */,
 				DA14D3F32997D8310059EC86 /* ProfileView.swift in Sources */,
 				80CB00D2299696600064003F /* AppDelegate.swift in Sources */,
 				DA14D3ED2997C05D0059EC86 /* GrayButtonTextView.swift in Sources */,
+				DA14D4082998DAC50059EC86 /* OverviewCell.swift in Sources */,
 				80CB00F3299696F00064003F /* ErrorModel.swift in Sources */,
 				80AC39A2299809F800734D0B /* SCNNode+Ext.swift in Sources */,
+				DA14D4042998D9B10059EC86 /* MarketplaceViewController.swift in Sources */,
 				80CB00D4299696600064003F /* SceneDelegate.swift in Sources */,
 				80AC39282996D77C00734D0B /* GameViewController.swift in Sources */,
 				DAF71A992997AEF8007D2332 /* UICollectionView+Ext.swift in Sources */,
@@ -590,9 +622,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UEA5XWCYV3;
+				DEVELOPMENT_TEAM = 288ZUH88HD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImmutableXApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "to spy on you";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -623,9 +656,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UEA5XWCYV3;
+				DEVELOPMENT_TEAM = 288ZUH88HD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImmutableXApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "to spy on you";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

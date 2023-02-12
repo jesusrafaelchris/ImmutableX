@@ -4,9 +4,7 @@ class AssetView: UIView {
     
     lazy var amountLabel: UILabel = {
         let text = UILabel()
-        text.font = UIFont.boldSystemFont(ofSize: 20)
-        text.text = "My Assets"
-        text.textColor = .white
+        text.layout(colour: .white, size: 20, text: "My Assets", bold: true)
         text.numberOfLines = 0
         text.translatesAutoresizingMaskIntoConstraints = false
         text.textAlignment = .center
@@ -15,27 +13,11 @@ class AssetView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         layer.cornerRadius = 25
         layer.masksToBounds = true
         setUpView()
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        gradientLayer.frame = bounds
-    }
-    
-    private lazy var gradientLayer: CAGradientLayer = {
-        let l = CAGradientLayer()
-        l.frame = self.bounds
-        l.colors = [UIColor.systemRed.cgColor, UIColor.systemGreen.cgColor]
-        l.startPoint = CGPoint(x: 0, y: 0.3)
-        l.endPoint = CGPoint(x: 1, y: 0.3)
-        l.cornerRadius = 16
-        layer.insertSublayer(l, at: 0)
-        return l
-    }()
-    
     
     func setUpView() {
         addSubview(amountLabel)

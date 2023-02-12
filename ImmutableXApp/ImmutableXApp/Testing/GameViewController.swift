@@ -62,26 +62,26 @@ class GameViewController: UIViewController {
     
     // MARK: Setup methods
     
-    private func addFacialExpressionDetector() {
-        addChild(facialExpressionDetectorViewController)
-        view.addSubview(facialExpressionDetectorViewController.view)
-        facialExpressionDetectorViewController.didMove(toParent: self)
-        facialExpressionDetectorViewController.view.isHidden = true
-    }
-    
-    private func subscribeToFacialExpressionChanges() {
-        facialExpressionDetectorViewController.facialExpressionPublisher.sink(receiveValue: { [weak self]  expressions in
-            guard let strongSelf = self else {return}
-            let blink1 = [FacialExpression(rawValue: "eyeBlinkLeft"), FacialExpression(rawValue: "eyeBlinkRight")]
-            let blink2 = [FacialExpression(rawValue: "eyeBlinkLeft"), FacialExpression(rawValue: "eyeBlinkRight")]
-            DispatchQueue.main.async {
-                if expressions ==  blink1 || expressions == blink2 {
-                    strongSelf.flipped = -1 * strongSelf.flipped
-                    strongSelf.scnScene.physicsWorld.gravity = SCNVector3Make(0, strongSelf.flipped * 50, 0)
-                }
-            }
-        }).store(in: &cancellables)
-    }
+//    private func addFacialExpressionDetector() {
+//        addChild(facialExpressionDetectorViewController)
+//        view.addSubview(facialExpressionDetectorViewController.view)
+//        facialExpressionDetectorViewController.didMove(toParent: self)
+//        facialExpressionDetectorViewController.view.isHidden = true
+//    }
+//    
+//    private func subscribeToFacialExpressionChanges() {
+//        facialExpressionDetectorViewController.facialExpressionPublisher.sink(receiveValue: { [weak self]  expressions in
+//            guard let strongSelf = self else {return}
+//            let blink1 = [FacialExpression(rawValue: "eyeBlinkLeft"), FacialExpression(rawValue: "eyeBlinkRight")]
+//            let blink2 = [FacialExpression(rawValue: "eyeBlinkLeft"), FacialExpression(rawValue: "eyeBlinkRight")]
+//            DispatchQueue.main.async {
+//                if expressions ==  blink1 || expressions == blink2 {
+//                    strongSelf.flipped = -1 * strongSelf.flipped
+//                    strongSelf.scnScene.physicsWorld.gravity = SCNVector3Make(0, strongSelf.flipped * 50, 0)
+//                }
+//            }
+//        }).store(in: &cancellables)
+//    }
     
     func setupView() {
         view.addSubview(scnView)
