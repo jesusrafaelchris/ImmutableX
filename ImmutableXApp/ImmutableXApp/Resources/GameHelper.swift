@@ -55,7 +55,7 @@ class GameHelper {
     skScene.backgroundColor = UIColor(white: 0.0, alpha: 0.0)
     
     labelNode = SKLabelNode(fontNamed: "Menlo-Bold")
-    labelNode.fontSize = 48
+    labelNode.fontSize = 60
     labelNode.position.y = 50
     labelNode.position.x = 250
     
@@ -73,9 +73,9 @@ class GameHelper {
     hudNode.rotation = SCNVector4(x: 1, y: 0, z: 0, w: 3.14159265)
   }
   
-    func updateHUD(time: String) {
+    func updateHUD(time: String, money: Int) {
     let scoreFormatted = String(format: "%0\(3)d", time)
-    labelNode.text = "Score: \(time)"
+    labelNode.text = "Score: \(time)"//   🪙: \(money)"
   }
   
   func loadSound(_ name:String, fileNamed:String) {

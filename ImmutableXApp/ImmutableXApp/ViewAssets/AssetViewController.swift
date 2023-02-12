@@ -34,12 +34,12 @@ class AssetViewController: UIViewController {
         view.backgroundColor = .white
         setUpView()
         overviews = [
-            overview(image: "Astronaut", title: "Terry", description: "0.001 Ξ"),
-            overview(image: "Cat", title: "Nine", description: "0.002 Ξ"),
-            overview(image: "Dog", title: "Rocky", description: "0.0005 Ξ"),
-            overview(image: "Chicken", title: "KFC", description: "0.002 Ξ"),
-            overview(image: "Monkey", title: "Coco", description: "0.0024 Ξ"),
-            overview(image: "Lion", title: "Simba", description: "0.00001 Ξ"),
+            overview(image: "Astronaut", title: "Terry", description: "0.001 Ξ", nonBackgroundImage: "BLM_Space"),
+            overview(image: "Cat", title: "Nine", description: "0.002 Ξ", nonBackgroundImage: "CAT_Space"),
+            overview(image: "Dog", title: "Rocky", description: "0.0005 Ξ", nonBackgroundImage: "Woof_Space"),
+            overview(image: "Chicken", title: "KFC", description: "0.002 Ξ", nonBackgroundImage: "Chicken_Space"),
+            overview(image: "Monkey", title: "Coco", description: "0.0024 Ξ", nonBackgroundImage: "Ooga_Space"),
+            overview(image: "Lion", title: "Simba", description: "0.00001 Ξ", nonBackgroundImage: "Lion_Space"),
         ]
     }
     func setUpView(){
@@ -86,7 +86,7 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = overviews[indexPath.item]
-        let valueToStore = item.image
+        let valueToStore = item.nonBackgroundImage
         UserDefaults.standard.set(valueToStore, forKey: "character")
         self.dismiss(animated: true)
 
@@ -97,4 +97,5 @@ struct overview {
     var image: String
     var title: String
     var description: String
+    var nonBackgroundImage: String
 }

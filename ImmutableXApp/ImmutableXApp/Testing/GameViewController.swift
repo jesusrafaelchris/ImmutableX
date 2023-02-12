@@ -29,12 +29,13 @@ class GameViewController: UIViewController {
     var coins = [SCNNode]()
     private var timer: Timer!
     private var seconds = 0
+    var coinScore = 0
     
     lazy var scnView: SCNView = {
         let sceneView = SCNView()
         sceneView.translatesAutoresizingMaskIntoConstraints = false
-        sceneView.showsStatistics = true
-        sceneView.allowsCameraControl = true
+        //sceneView.showsStatistics = true
+        //sceneView.allowsCameraControl = true
         sceneView.autoenablesDefaultLighting = true
         sceneView.delegate = self
         return sceneView
@@ -97,7 +98,6 @@ class GameViewController: UIViewController {
     func setupScene() {
         scnScene = SCNScene()
         
-        
         let character = UserDefaults.standard.string(forKey: "character")
         if character == "BLM_Space" {
             addPlanet()
@@ -125,7 +125,17 @@ class GameViewController: UIViewController {
     func setupCamera() {
         cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 5, y: 6, z: 35)
+        
+        let character = UserDefaults.standard.string(forKey: "character")
+        if character == "BLM_Space" {
+            cameraNode.position = SCNVector3(x: 5, y: 6, z: 35)
+            cameraNode.eulerAngles.x = 0
+        }
+        else {
+            cameraNode.position = SCNVector3(x: -20, y: 9, z: 30)
+            cameraNode.eulerAngles.y = -(.pi/4)
+        }
+        
         //cameraNode.eulerAngles.y = -(.pi / 6)
         scnScene.rootNode.addChildNode(cameraNode)
     }
@@ -410,7 +420,7 @@ extension GameViewController: SCNSceneRendererDelegate {
             spawnTime = time + TimeInterval(Float.random(min: 0.2, max: 1.5))
         }
         
-        game.updateHUD(time: "\(seconds)")
+        game.updateHUD(time: "\(seconds)", money: coinScore)
     }
     
     func endGame() {
@@ -432,6 +442,7 @@ extension GameViewController: SCNPhysicsContactDelegate {
             let contactX = contact.contactPoint.x.rounded()
             let coinAtX = coins.first
             coinAtX?.removeFromParentNode()
+            coinScore += 1
             coins.remove(at: 0)
         }
     }

@@ -77,7 +77,6 @@
 		80AC399D2997DF7E00734D0B /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		80AC399F299800D600734D0B /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		80AC39A1299809F800734D0B /* SCNNode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Ext.swift"; sourceTree = "<group>"; };
-		80AC39A52998310400734D0B /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		80AC39A82998416E00734D0B /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		80AC39AB2998556D00734D0B /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		80AC39AD2998E9C800734D0B /* Trail.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Trail.scnp; sourceTree = "<group>"; };
@@ -217,7 +216,6 @@
 				DA14D4022998D9A20059EC86 /* Marketplace */,
 				80AC39AA2998556000734D0B /* Api */,
 				DA14D3FB29982AD50059EC86 /* Game */,
-				80AC39A52998310400734D0B /* Background.png */,
 				80AC39892997BDEF00734D0B /* Resources */,
 				80AC39852997B9E800734D0B /* GeometryFighter.scnassets */,
 				DAF71A8F2997AE81007D2332 /* Extensions */,
@@ -622,7 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 288ZUH88HD;
+				DEVELOPMENT_TEAM = UEA5XWCYV3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImmutableXApp/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "to spy on you";
@@ -656,7 +654,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 288ZUH88HD;
+				DEVELOPMENT_TEAM = UEA5XWCYV3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImmutableXApp/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "to spy on you";
