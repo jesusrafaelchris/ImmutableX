@@ -34,12 +34,12 @@ class AssetViewController: UIViewController {
         view.backgroundColor = .white
         setUpView()
         overviews = [
-            overview(image: "BLM_Space", title: "Terry", description: "0.001 Ξ"),
-            overview(image: "CAT_Space", title: "Nine", description: "0.002 Ξ"),
-            overview(image: "Woof_Space", title: "Rocky", description: "0.0005 Ξ"),
-            overview(image: "Chicken_Space", title: "KFC", description: "0.002 Ξ"),
-            overview(image: "Ooga_Space", title: "Coco", description: "0.0024 Ξ"),
-            overview(image: "Lion_Space", title: "Simba", description: "0.00001 Ξ"),
+            overview(image: "Astronaut", title: "Terry", description: "0.001 Ξ"),
+            overview(image: "Cat", title: "Nine", description: "0.002 Ξ"),
+            overview(image: "Dog", title: "Rocky", description: "0.0005 Ξ"),
+            overview(image: "Chicken", title: "KFC", description: "0.002 Ξ"),
+            overview(image: "Monkey", title: "Coco", description: "0.0024 Ξ"),
+            overview(image: "Lion", title: "Simba", description: "0.00001 Ξ"),
         ]
     }
     func setUpView(){
@@ -49,7 +49,7 @@ class AssetViewController: UIViewController {
         
         titleView.anchor(top: view.topAnchor, paddingTop: 40, bottom: nil, paddingBottom: 0, left: view.leftAnchor, paddingLeft: 24, right: nil, paddingRight: 0, width: 0, height: 0)
         
-        upcomingCollectionView.anchor(top: titleView.bottomAnchor, paddingTop: 30, bottom: view.bottomAnchor, paddingBottom: 0, left: view.leftAnchor, paddingLeft: 10, right: view.rightAnchor, paddingRight: 10, width: 0, height: 0)
+        upcomingCollectionView.anchor(top: titleView.bottomAnchor, paddingTop: 30, bottom: view.bottomAnchor, paddingBottom: 0, left: view.leftAnchor, paddingLeft: 15, right: view.rightAnchor, paddingRight: 15, width: 0, height: 0)
     }
 }
 
@@ -70,14 +70,14 @@ extension AssetViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth = (collectionView.bounds.width / 3) - 10
-        let itemHeight = CGFloat(180)//view.bounds.height / 15
+        let itemWidth = (collectionView.bounds.width / 2) - 5
+        let itemHeight = CGFloat(235)//view.bounds.height / 15
         let itemSize = CGSize(width: itemWidth, height: itemHeight)
         return itemSize
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

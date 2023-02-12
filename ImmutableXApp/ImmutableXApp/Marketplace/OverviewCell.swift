@@ -1,13 +1,13 @@
 import UIKit
 
-class AssetCell: UICollectionViewCell {
+class OverviewCell: UICollectionViewCell {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "github")
+        imageView.image = UIImage(named: "githu")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 8
+        imageView.layer.cornerRadius = 16
         imageView.layer.shadowColor = UIColor.black.cgColor
         imageView.layer.shadowOpacity = 0.8
         imageView.layer.shadowRadius = 30
@@ -17,13 +17,13 @@ class AssetCell: UICollectionViewCell {
     
     lazy var titleLabel: UILabel = {
         let text = UILabel()
-        text.layout(colour: .black, size: 14, text: "Bruh", bold: false)
+        text.layout(colour: .black, size: 14, text: "Polygon X EasyA", bold: false)
         return text
     }()
     
     lazy var desciptionLabel: UILabel = {
         let text = UILabel()
-        text.layout(colour: .darkGray, size: 12, text: "Moin", bold: true)
+        text.layout(colour: .darkGray, size: 12, text: "FREE - Register Now", bold: true)
         return text
     }()
     
@@ -36,7 +36,7 @@ class AssetCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(data: overview) {
+    func configure(data: Overview) {
         imageView.image = UIImage(named: data.image)
         titleLabel.text = data.title
         desciptionLabel.text = data.description
@@ -47,11 +47,10 @@ class AssetCell: UICollectionViewCell {
         addSubview(titleLabel)
         addSubview(desciptionLabel)
         
-        imageView.anchor(top: topAnchor, paddingTop: 0, bottom: nil, paddingBottom: 0, left: leftAnchor, paddingLeft: 0, right: rightAnchor, paddingRight: 0, width: 0, height: 180)
+        imageView.anchor(top: topAnchor, paddingTop: 0, bottom: nil, paddingBottom: 0, left: leftAnchor, paddingLeft: 0, right: rightAnchor, paddingRight: 0, width: 0, height: 130)
         
-        titleLabel.anchor(top: imageView.bottomAnchor, paddingTop: 4, bottom: nil, paddingBottom: 0, left: leftAnchor, paddingLeft: 0, right: nil, paddingRight: 0, width: 0, height: 0)
+        titleLabel.anchor(top: imageView.bottomAnchor, paddingTop: 10, bottom: nil, paddingBottom: 0, left: leftAnchor, paddingLeft: 0, right: nil, paddingRight: 0, width: 0, height: 0)
         
-        desciptionLabel.anchor(top: titleLabel.bottomAnchor, paddingTop: 2, bottom: nil, paddingBottom: 0, left: leftAnchor, paddingLeft: 0, right: nil, paddingRight: 0, width: 0, height: 0)
+        desciptionLabel.anchor(top: titleLabel.bottomAnchor, paddingTop: 4, bottom: nil, paddingBottom: 0, left: leftAnchor, paddingLeft: 0, right: nil, paddingRight: 0, width: 0, height: 0)
     }
 }
-

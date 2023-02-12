@@ -25,10 +25,10 @@ class GrayButtonsView: UIView {
         addSubview(buttonStackView)
         buttonStackView.anchor(top: topAnchor, paddingTop: 0, bottom: nil, paddingBottom: 0, left: leftAnchor, paddingLeft: 0, right: rightAnchor, paddingRight: 0, width: 0, height: 0)
         
-        button1.configure(image: "gear", label: "Settings")
-        button2.configure(image: "speaker.wave.2", label: "Sound")
-        button3.configure(image: "person.fill", label: "Profile")
-        button4.configure(image: "gift", label: "Gifts")
+        button1.configure(image: "gear", label: "")
+        button2.configure(image: "speaker.wave.2", label: "")
+        button3.configure(image: "person.fill", label: "")
+        button4.configure(image: "gift", label: "")
         
     }
     

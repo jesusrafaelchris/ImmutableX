@@ -1,6 +1,6 @@
 import UIKit
 
-class GameOverViewController: UIViewController, GameOverViewDelegate {
+class GameOverViewController: UIViewController {
     func GoHome() {
         navigationController?.popViewController(animated: true)
     }
@@ -11,7 +11,6 @@ class GameOverViewController: UIViewController, GameOverViewDelegate {
     
     lazy var gameoverView: GameOverView = {
         let view = GameOverView()
-        view.delegate = self
         return view
     }()
     

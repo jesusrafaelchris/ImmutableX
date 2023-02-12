@@ -6,7 +6,7 @@ class GrayButtonTextView: UIView {
     
     lazy var buttonLabel: UILabel = {
         let label = UILabel()
-        label.layout(colour: .darkGray, size: 12, text: "", bold: false)
+        label.layout(colour: .white, size: 12, text: "", bold: false)
         return label
     }()
     

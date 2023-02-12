@@ -12,7 +12,7 @@ class GrayButton:UIButton {
     }
     
     func configure(image: String){
-        layout(textcolour: .clear, backgroundColour: .black.withAlphaComponent(0.1), size: 80, text: "", image: UIImage(systemName: image)?.withTintColor(.black).withRenderingMode(.alwaysOriginal), cornerRadius: 25)
+        layout(textcolour: .clear, backgroundColour: .black.withAlphaComponent(0.4), size: 80, text: "", image: UIImage(systemName: image)?.withTintColor(.white).withRenderingMode(.alwaysOriginal), cornerRadius: 25)
     }
     
 }
